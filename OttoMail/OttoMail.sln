@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{99595DEF-66C3-4B92-BCD6-CC568B16D689}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9929C92D-1F24-48E9-99C3-7570AE0871F9}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "OttoMail", "src\OttoMail\OttoMail.xproj", "{CB431093-B65C-473D-B67A-7D2CFEB59C13}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CB431093-B65C-473D-B67A-7D2CFEB59C13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB431093-B65C-473D-B67A-7D2CFEB59C13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB431093-B65C-473D-B67A-7D2CFEB59C13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB431093-B65C-473D-B67A-7D2CFEB59C13}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CB431093-B65C-473D-B67A-7D2CFEB59C13} = {99595DEF-66C3-4B92-BCD6-CC568B16D689}
+	EndGlobalSection
+EndGlobal
