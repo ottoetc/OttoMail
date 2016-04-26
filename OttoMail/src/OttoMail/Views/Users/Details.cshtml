@@ -1,12 +1,10 @@
-﻿@model OttoMail.Models.User
+﻿@{
+    ViewData["Title"] = "OttoMail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-<html>
-<head>
-    <title>OttoMail</title>
-</head>
-<body>
-    <h2>Emails</h2>
-    @Html.DisplayFor(model => model.UserName) | @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)
-    <p>@Html.ActionLink("Back to user list", "Index")</p>
-</body>
-</html>
+@model OttoMail.Models.User
+
+<h2>Emails</h2>
+@Html.DisplayFor(model => model.UserName) | @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)
+<p>@Html.ActionLink("Back to user list", "Index")</p>

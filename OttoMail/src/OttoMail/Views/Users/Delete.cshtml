@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "OttoMail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model OttoMail.Models.User
+
+<h2>Are you sure you want to delete this?</h2>
+@Html.DisplayNameFor(model => model.UserName): @Html.DisplayFor(model => model.UserName)
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" />
+}
+@Html.ActionLink("Back to user list", "Index")

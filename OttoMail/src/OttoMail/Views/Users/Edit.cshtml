@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "OttoMail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model OttoMail.Models.User
+
+<h2>Edit</h2>
+<h4>Edit this user: @Html.DisplayFor(model => model.UserName)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.UserId)
+
+    @Html.LabelFor(model => model.FirstName)
+    @Html.EditorFor(model => model.FirstName)
+
+    @Html.LabelFor(model => model.LastName)
+    @Html.EditorFor(model => model.LastName)
+
+    @Html.LabelFor(model => model.UserName)
+    @Html.EditorFor(model => model.UserName)
+
+    <input type="submit" value="Save" />
+}
+<p>@Html.ActionLink("Back to user list", "Index")</p>
