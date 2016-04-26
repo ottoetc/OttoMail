@@ -11,5 +11,10 @@ namespace OttoMail.Models
         public DbSet<User> Users { get; set; }
 
         public DbSet<Email> Emails { get; set; }
+
+        protected override void OnConfiguring (DbContextOptionsBuilder options)
+        {
+            options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=OttoMail;integrated security = True");
+        }
     }
 }

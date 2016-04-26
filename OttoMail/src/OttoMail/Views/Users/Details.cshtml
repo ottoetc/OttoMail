@@ -1,0 +1,12 @@
+﻿@model OttoMail.Models.User
+
+<html>
+<head>
+    <title>OttoMail</title>
+</head>
+<body>
+    <h2>Emails</h2>
+    @Html.DisplayFor(model => model.UserName) | @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)
+    <p>@Html.ActionLink("Back to user list", "Index")</p>
+</body>
+</html>

@@ -45,11 +45,6 @@ namespace OttoMail
                     name: "default",
                     template: "{controller=home}/{action=Index}/{id?}");
             });
-
-            //app.Run(async (context) =>
-            //{
-            //    await context.Response.WriteAsync("Hello World!");
-            //});
         }
 
         // Entry point for the application.

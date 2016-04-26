@@ -1,0 +1,18 @@
+﻿@model IEnumerable<OttoMail.Models.User>
+
+<html>
+<head>
+    <title>OttoMail</title>
+</head>
+<body>
+    <h2>OttoMail</h2>
+    <h4>@Html.DisplayNameFor(model => model.UserName)</h4>
+    <ul>
+        @foreach(var listUser in Model)
+        {
+            <li>@Html.DisplayFor(modelUser => listUser.UserName) | @Html.ActionLink("Details", "Details", new { id = listUser.UserId })</li>
+      
+        }
+    </ul>
+</body>
+</html>
