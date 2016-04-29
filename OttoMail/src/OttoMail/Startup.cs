@@ -32,7 +32,7 @@ namespace OttoMail
                 .AddSqlServer()
                 .AddDbContext<OttoMailDbContext>(options =>
                 options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<OttoMailDbContext>()
                 .AddDefaultTokenProviders();
         }

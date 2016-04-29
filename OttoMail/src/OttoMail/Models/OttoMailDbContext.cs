@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OttoMail.Models
 {
-    public class OttoMailDbContext : IdentityDbContext<ApplicationUser>
+    public class OttoMailDbContext : IdentityDbContext<User>
     {
         public DbSet<User> Users { get; set; }
 

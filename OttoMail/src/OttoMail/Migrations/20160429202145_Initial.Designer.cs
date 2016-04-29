@@ -8,8 +8,8 @@ using OttoMail.Models;
 namespace OttoMail.Migrations
 {
     [DbContext(typeof(OttoMailDbContext))]
-    [Migration("20160429162227_AddedIdentityAuthentication")]
-    partial class AddedIdentityAuthentication
+    [Migration("20160429202145_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -99,7 +99,33 @@ namespace OttoMail.Migrations
                     b.HasAnnotation("Relational:TableName", "AspNetUserRoles");
                 });
 
-            modelBuilder.Entity("OttoMail.Models.ApplicationUser", b =>
+            modelBuilder.Entity("OttoMail.Models.Email", b =>
+                {
+                    b.Property<int>("EmailId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Body");
+
+                    b.Property<bool>("Checked");
+
+                    b.Property<DateTime>("Date");
+
+                    b.Property<bool>("Read");
+
+                    b.Property<string>("Sender");
+
+                    b.Property<string>("Subject");
+
+                    b.Property<int>("UserId");
+
+                    b.Property<string>("UserId1");
+
+                    b.HasKey("EmailId");
+
+                    b.HasAnnotation("Relational:TableName", "Emails");
+                });
+
+            modelBuilder.Entity("OttoMail.Models.User", b =>
                 {
                     b.Property<string>("Id");
 
@@ -112,6 +138,10 @@ namespace OttoMail.Migrations
                         .HasAnnotation("MaxLength", 256);
 
                     b.Property<bool>("EmailConfirmed");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -133,6 +163,8 @@ namespace OttoMail.Migrations
 
                     b.Property<bool>("TwoFactorEnabled");
 
+                    b.Property<int>("UserId");
+
                     b.Property<string>("UserName")
                         .HasAnnotation("MaxLength", 256);
 
@@ -147,46 +179,6 @@ namespace OttoMail.Migrations
                     b.HasAnnotation("Relational:TableName", "AspNetUsers");
                 });
 
-            modelBuilder.Entity("OttoMail.Models.Email", b =>
-                {
-                    b.Property<int>("EmailId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Body");
-
-                    b.Property<bool>("Checked");
-
-                    b.Property<DateTime>("Date");
-
-                    b.Property<bool>("Read");
-
-                    b.Property<string>("Sender");
-
-                    b.Property<string>("Subject");
-
-                    b.Property<int>("UserId");
-
-                    b.HasKey("EmailId");
-
-                    b.HasAnnotation("Relational:TableName", "Emails");
-                });
-
-            modelBuilder.Entity("OttoMail.Models.User", b =>
-                {
-                    b.Property<int>("UserId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("FirstName");
-
-                    b.Property<string>("LastName");
-
-                    b.Property<string>("UserName");
-
-                    b.HasKey("UserId");
-
-                    b.HasAnnotation("Relational:TableName", "Users");
-                });
-
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNet.Identity.EntityFramework.IdentityRole")
@@ -196,14 +188,14 @@ namespace OttoMail.Migrations
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("OttoMail.Models.ApplicationUser")
+                    b.HasOne("OttoMail.Models.User")
                         .WithMany()
                         .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("OttoMail.Models.ApplicationUser")
+                    b.HasOne("OttoMail.Models.User")
                         .WithMany()
                         .HasForeignKey("UserId");
                 });
@@ -214,7 +206,7 @@ namespace OttoMail.Migrations
                         .WithMany()
                         .HasForeignKey("RoleId");
 
-                    b.HasOne("OttoMail.Models.ApplicationUser")
+                    b.HasOne("OttoMail.Models.User")
                         .WithMany()
                         .HasForeignKey("UserId");
                 });
@@ -223,7 +215,7 @@ namespace OttoMail.Migrations
                 {
                     b.HasOne("OttoMail.Models.User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId1");
                 });
         }
     }
