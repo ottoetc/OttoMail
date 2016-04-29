@@ -8,9 +8,10 @@ using OttoMail.Models;
 namespace OttoMail.Migrations
 {
     [DbContext(typeof(OttoMailDbContext))]
-    partial class OttoMailDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160429162227_AddedIdentityAuthentication")]
+    partial class AddedIdentityAuthentication
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
