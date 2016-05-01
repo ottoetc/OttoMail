@@ -1,20 +1,23 @@
 ﻿@{
-    ViewData["Title"] = "OttoMail";
+    ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>OttoMail</h2>
-<p>@Html.ActionLink("Register", "Register"</p>
-
-@*@model IEnumerable<OttoMail.Models.User>
+@using System.Security.Claims
 
 <h2>OttoMail</h2>
-<h4>@Html.DisplayNameFor(model => model.UserName)</h4>
-<ul>
-    @foreach(var listUser in Model)
+@if (User.IsSignedIn())
+{
+    <p>Welcome to OttoMail, @User.GetUserName()!</p>
+    @using (Html.BeginForm("LogOff", "Account"))
     {
-        <li>@Html.DisplayFor(modelUser => listUser.UserName) | @Html.ActionLink("Details", "Details", new { id = listUser.UserId }) | @Html.ActionLink("Edit", "Edit", new { id = listUser.UserId }) | @Html.ActionLink("Delete", "Delete", new { id = listUser.UserId })</li>
-      
+        <input type="submit" value="Logout" />
     }
-</ul>
-<p>@Html.ActionLink("Add new user", "Create")</p>*@
+}
+else
+{
+    <p>@Html.ActionLink("Register", "Register")</p>
+    <p>@Html.ActionLink("Login", "Login")</p>
+}
+
+

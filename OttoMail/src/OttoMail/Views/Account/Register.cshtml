@@ -1,0 +1,24 @@
+﻿@{ 
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using OttoMail.ViewModels
+
+@model RegisterViewModel
+
+<h2>Register for OttoMail</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+    @Html.LabelFor(m => m.Email)
+    @Html.TextBoxFor(m => m.Email)
+
+    @Html.LabelFor(m => m.Password)
+    @Html.TextBoxFor(m => m.Password)
+    
+    @Html.LabelFor(m => m.ConfirmPassword)
+    @Html.TextBoxFor(m => m.ConfirmPassword)
+
+    <input type="submit" value="Register" />
+}

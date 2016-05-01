@@ -6,6 +6,7 @@ using Microsoft.AspNet.Mvc;
 using OttoMail.Models;
 using Microsoft.Data.Entity;
 using Microsoft.AspNet.Identity;
+using OttoMail.ViewModels;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -29,6 +30,52 @@ namespace OttoMail.Controllers
             return View();
         }
 
+        // GET: Register
+        public IActionResult Register()
+        {
+            return View();
+        }
+        // POST: Register
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+            var user = new ApplicationUser { UserName = model.Email };
+            IdentityResult result = await _userManager.CreateAsync(user, model.Password);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
+        }
+        // GET: Login
+        public IActionResult Login()
+        {
+            return View();
+        }
+        // POST: Login
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
+        }
+        // POST: LogOff
+        [HttpPost]
+        public async Task<IActionResult> LogOff()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index");
+        }
         //public IActionResult Details(int id)
         //{
         //    var thisUser = _db.Users.FirstOrDefault(users => users.UserId == id);

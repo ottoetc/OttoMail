@@ -50,6 +50,7 @@ namespace OttoMail
                     name: "default",
                     template: "{controller=Account}/{action=Index}/{id?}");
             });
+            
         }
 
         // Entry point for the application.
