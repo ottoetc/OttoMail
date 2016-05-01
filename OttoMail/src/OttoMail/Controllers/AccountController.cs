@@ -23,11 +23,11 @@ namespace OttoMail.Controllers
             _signInManager = signInManager;
             _db = db;
         }
-        //// GET: /<controller>/
-        //public IActionResult Index()
-        //{
-        //    return View(_db.Users.ToList());
-        //}
+        // GET: /<controller>/
+        public IActionResult Index()
+        {
+            return View();
+        }
 
         //public IActionResult Details(int id)
         //{
