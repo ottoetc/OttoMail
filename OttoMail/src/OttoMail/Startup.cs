@@ -30,10 +30,10 @@ namespace OttoMail
             services.AddMvc();
             services.AddEntityFramework()
                 .AddSqlServer()
-                .AddDbContext<OttoMailDbContext>(options =>
+                .AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
-            services.AddIdentity<User, IdentityRole>()
-                .AddEntityFrameworkStores<OttoMailDbContext>()
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
         }
 
@@ -48,7 +48,7 @@ namespace OttoMail
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Users}/{action=Index}/{id?}");
+                    template: "{controller=Account}/{action=Index}/{id?}");
             });
         }
 

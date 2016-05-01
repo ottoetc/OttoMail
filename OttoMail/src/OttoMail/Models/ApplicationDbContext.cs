@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace OttoMail.Models
 {
-    public class OttoMailDbContext : IdentityDbContext<User>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<User> Users { get; set; }
-
         public DbSet<Email> Emails { get; set; }
 
         protected override void OnConfiguring (DbContextOptionsBuilder options)

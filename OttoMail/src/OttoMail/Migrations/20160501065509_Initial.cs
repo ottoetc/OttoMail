@@ -31,8 +31,6 @@ namespace OttoMail.Migrations
                     ConcurrencyStamp = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     EmailConfirmed = table.Column<bool>(nullable: false),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     NormalizedEmail = table.Column<string>(nullable: true),
@@ -42,12 +40,29 @@ namespace OttoMail.Migrations
                     PhoneNumberConfirmed = table.Column<bool>(nullable: false),
                     SecurityStamp = table.Column<string>(nullable: true),
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
-                    UserId = table.Column<int>(nullable: false),
                     UserName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.Id);
+                    table.PrimaryKey("PK_ApplicationUser", x => x.Id);
+                });
+            migrationBuilder.CreateTable(
+                name: "Emails",
+                columns: table => new
+                {
+                    EmailId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Body = table.Column<string>(nullable: true),
+                    Checked = table.Column<bool>(nullable: false),
+                    Date = table.Column<DateTime>(nullable: false),
+                    Read = table.Column<bool>(nullable: false),
+                    Sender = table.Column<string>(nullable: true),
+                    Subject = table.Column<string>(nullable: true),
+                    UserId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Email", x => x.EmailId);
                 });
             migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
@@ -83,7 +98,7 @@ namespace OttoMail.Migrations
                 {
                     table.PrimaryKey("PK_IdentityUserClaim<string>", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_IdentityUserClaim<string>_User_UserId",
+                        name: "FK_IdentityUserClaim<string>_ApplicationUser_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -102,7 +117,7 @@ namespace OttoMail.Migrations
                 {
                     table.PrimaryKey("PK_IdentityUserLogin<string>", x => new { x.LoginProvider, x.ProviderKey });
                     table.ForeignKey(
-                        name: "FK_IdentityUserLogin<string>_User_UserId",
+                        name: "FK_IdentityUserLogin<string>_ApplicationUser_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -125,36 +140,11 @@ namespace OttoMail.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_IdentityUserRole<string>_User_UserId",
+                        name: "FK_IdentityUserRole<string>_ApplicationUser_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
-            migrationBuilder.CreateTable(
-                name: "Emails",
-                columns: table => new
-                {
-                    EmailId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Body = table.Column<string>(nullable: true),
-                    Checked = table.Column<bool>(nullable: false),
-                    Date = table.Column<DateTime>(nullable: false),
-                    Read = table.Column<bool>(nullable: false),
-                    Sender = table.Column<string>(nullable: true),
-                    Subject = table.Column<string>(nullable: true),
-                    UserId = table.Column<int>(nullable: false),
-                    UserId1 = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Email", x => x.EmailId);
-                    table.ForeignKey(
-                        name: "FK_Email_User_UserId1",
-                        column: x => x.UserId1,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
