@@ -19,5 +19,14 @@ namespace OttoMail.Models
         public bool Read { get; set; }
         public bool Checked { get; set; }
         public virtual ApplicationUser User { get; set; }
+
+        private DateTime Now = DateTime.Now;
+        private bool DefaultRead = false;
+
+        public Email()
+        {
+            Date = Now;
+            Read = DefaultRead;
+        }
     }
 }

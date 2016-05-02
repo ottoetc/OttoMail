@@ -21,5 +21,25 @@ namespace OttoMail.Tests
             //Assert
             Assert.Equal("Test", result);   
         }
+        [Fact]
+        public void GetBodyTest()
+        {
+            var email = new Email();
+            email.Body = "Test";
+
+            var result = email.Body;
+
+            Assert.Equal("Test", result);
+        }
+        [Fact]
+        public void GetDateTest()
+        {
+            var email = new Email();
+
+            var result = email.Date;
+
+            Assert.Equal(DateTime.Now, result);
+        }
+        
     }
 }

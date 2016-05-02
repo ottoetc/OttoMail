@@ -16,7 +16,7 @@
     <ul>
         @foreach (var listEmail in Model)
         {
-            <li>@Html.DisplayFor(modelEmail => listEmail.Subject)</li>
+            <li>@Html.DisplayFor(modelEmail => listEmail.Date) | @Html.DisplayFor(modelEmail => listEmail.Subject)</li>
         }
     </ul>
 }
