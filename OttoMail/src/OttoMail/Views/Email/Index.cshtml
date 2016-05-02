@@ -1,0 +1,27 @@
+﻿@{ 
+    ViewData["Title"] = "Inbox";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using System.Security.Claims
+
+@model IEnumerable<OttoMail.Models.Email>
+
+<h2>@User.GetUserName()'s Email</h2>
+
+@Html.ActionLink("Compose", "Compose")
+
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var listEmail in Model)
+        {
+            <li>@Html.DisplayFor(modelEmail => listEmail.Subject)</li>
+        }
+    </ul>
+}
+else
+{
+    <p>Your email is empty</p>
+}
+
