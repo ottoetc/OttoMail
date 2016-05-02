@@ -40,6 +40,14 @@ namespace OttoMail.Tests
 
             Assert.Equal(DateTime.Now, result);
         }
-        
+        [Fact]
+        public void GetReadStateTest()
+        {
+            var email = new Email();
+
+            var result = email.Read;
+
+            Assert.Equal(false, result);
+        }
     }
 }
