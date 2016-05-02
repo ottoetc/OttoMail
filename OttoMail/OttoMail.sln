@@ -12,6 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "OttoMail", "src\OttoMail\OttoMail.xproj", "{CB431093-B65C-473D-B67A-7D2CFEB59C13}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{32B6A912-DFE2-4290-BECD-681892829B81}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "OttoMail.Tests", "OttoMail.Tests\OttoMail.Tests.xproj", "{3BE8D32D-7677-4862-B53A-6C6583200231}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,11 +26,16 @@ Global
 		{CB431093-B65C-473D-B67A-7D2CFEB59C13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB431093-B65C-473D-B67A-7D2CFEB59C13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB431093-B65C-473D-B67A-7D2CFEB59C13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BE8D32D-7677-4862-B53A-6C6583200231}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BE8D32D-7677-4862-B53A-6C6583200231}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BE8D32D-7677-4862-B53A-6C6583200231}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BE8D32D-7677-4862-B53A-6C6583200231}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CB431093-B65C-473D-B67A-7D2CFEB59C13} = {99595DEF-66C3-4B92-BCD6-CC568B16D689}
+		{3BE8D32D-7677-4862-B53A-6C6583200231} = {32B6A912-DFE2-4290-BECD-681892829B81}
 	EndGlobalSection
 EndGlobal
