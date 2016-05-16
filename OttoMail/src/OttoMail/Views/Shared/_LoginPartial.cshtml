@@ -1,0 +1,18 @@
+﻿@using System.Security.Claims
+
+@if (User.IsSignedIn())
+{
+    @using (Html.BeginForm("LogOff", "Account", new { @class = "navbar-right" }))
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li><input type="submit" value="Logout" class="btn btn-link navbar-btn navbar-link" /></li>
+        </ul>
+    }
+}
+else
+{
+<ul class="nav navbar-nav navbar-right">
+    <li>@Html.ActionLink("Register", "Register")</li>
+    <li>@Html.ActionLink("Login", "Login")</li>
+</ul>
+}
