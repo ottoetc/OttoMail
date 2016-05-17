@@ -6,6 +6,7 @@
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 </head>
 <body>
     <div class="navbar navbar-default navbar-fixed-top">
@@ -17,7 +18,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("OttoMail", "Index", "Home", null, new { @class = "navbar-brand" })
+                @Html.ActionLink("OttoMail", "Index", "Account", null, new { @class = "navbar-brand" })
             </div>
             
             <div class="collapse navbar-collapse" id="ottomail-navbar-collapse">

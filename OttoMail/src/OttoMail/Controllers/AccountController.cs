@@ -76,6 +76,11 @@ namespace OttoMail.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index");
         }
+
+        public IActionResult HelloAjax()
+        {
+            return Content("Hello from the controller!", "text/plain");
+        }
         //public IActionResult Details(int id)
         //{
         //    var thisUser = _db.Users.FirstOrDefault(users => users.UserId == id);
