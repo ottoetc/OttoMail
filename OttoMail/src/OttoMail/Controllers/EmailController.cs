@@ -45,7 +45,7 @@ namespace OttoMail.Controllers
             email.User = currentUser;
             _db.Emails.Add(email);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Account");
         }
     }
 }

@@ -13,13 +13,13 @@
             dataType: 'html',
             url: '@Url.Action("Index", "Email")',
             success: function (result) {
-                $('#result1').html(result);
-
+                $('#email').html(result);
             }
-
         })
 
     })
+
+    
 </script>
 <div class="container-fluid">
     <div class="row">
@@ -28,7 +28,7 @@
         </div>
         <div class="col-sm-10">
             <div id="email"></div>
-            <div id="result1"></div>
+            
         </div>
     </div>
 
