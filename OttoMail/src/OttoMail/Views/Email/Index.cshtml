@@ -16,7 +16,7 @@
     <ul>
         @foreach (var listEmail in Model)
         {
-            <li><a href="@Url.Action("Details", new { id = listEmail.EmailId })">@Html.DisplayFor(modelEmail => listEmail.Date) | @Html.DisplayFor(modelEmail => listEmail.Subject)</a></li>
+            <li><a href="@Url.Action("Details", new { id = listEmail.EmailId })">@Html.DisplayFor(modelEmail => listEmail.Date) | @Html.DisplayFor(modelEmail => listEmail.Subject)</a> | @Html.ActionLink("Delete", "Delete", new { id = listEmail.EmailId })</li>
         }
     </ul>
 }
