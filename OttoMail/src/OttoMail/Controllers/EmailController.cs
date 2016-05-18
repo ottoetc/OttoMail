@@ -47,5 +47,28 @@ namespace OttoMail.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index", "Account");
         }
+
+        public IActionResult Details(int id)
+        {
+            var thisEmail = _db.Emails.FirstOrDefault(x => x.EmailId == id);
+            return View(thisEmail);
+        }
+
+
+
+        public IActionResult Delete(int id)
+        {
+            var thisEmail = _db.Emails.FirstOrDefault(x => x.EmailId == id);
+            return View(thisEmail);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var thisEmail = _db.Emails.FirstOrDefault(x => x.EmailId == id);
+            _db.Emails.Remove(thisEmail);
+            _db.SaveChanges();
+            return RedirectToAction("Index", "Account");
+        }
     }
 }
