@@ -5,38 +5,47 @@
 
 @using System.Security.Claims
 
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        $.ajax({
-            type: 'GET',
-            dataType: 'html',
-            url: '@Url.Action("Index", "Email")',
-            success: function (result) {
-                $('#email').html(result);
-            }
-        })
-
-    })
-
-    
-</script>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-2">
-            <button class="btn btn-primary">Compose</button>
-        </div>
-        <div class="col-sm-10">
-            <div id="email"></div>
-            
-        </div>
-    </div>
-
-</div>
-
 @if (User.IsSignedIn())
             {
     <p>Welcome to OttoMail, @User.GetUserName()!</p>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                type: 'GET',
+                dataType: 'html',
+                url: '@Url.Action("Index", "Email")',
+                success: function (result) {
+                    $('#email').html(result);
+                }
+            })
+
+            $.ajax({
+                type: 'GET',
+                dataType: 'html',
+                url: '@Url.Action("Index", "Message")',
+                success: function (result) {
+                    $('#messages').html(result);
+
+                }
+
+            })
+
+        })
+
+    
+    </script>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2">
+                <button class="btn btn-primary">Compose</button>
+            </div>
+            <div class="col-sm-10">
+                <div id="email"></div>
+                <div id="messages"></div>
+            </div>
+        </div>
+
+    </div>
 
 }
 else

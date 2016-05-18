@@ -14,7 +14,9 @@
     "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
     "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
     "Microsoft.AspNet.Identity": "3.0.0-rc1-final",
-    "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-rc1-final"
+    "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-rc1-final",
+    "RestSharp": "105.2.3",
+    "Newtonsoft.Json": "8.0.3"
   },
 
   "commands": {
@@ -23,8 +25,7 @@
   },
 
   "frameworks": {
-    "dnx451": { },
-    "dnxcore50": { }
+    "dnx451": { }
   },
 
   "exclude": [

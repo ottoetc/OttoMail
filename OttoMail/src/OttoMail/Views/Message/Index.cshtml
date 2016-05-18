@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Inbox";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using System.Security.Claims
+
+@model IEnumerable<OttoMail.Models.Message>
+
+<h2>Text Messages</h2>
+
+@Html.ActionLink("Compose Text Message", "Compose")
+
+
+    <ul>
+        @foreach (var message in Model)
+        {
+            <li>
+                <ul>
+                    <li>To: @Html.DisplayFor(modelItem => message.To)</li>
+                    <li>From: @Html.DisplayFor(modelItem => message.From)</li>
+                    <li>Body: @Html.DisplayFor(modelItem => message.Body)</li>
+                    <li>Status: @Html.DisplayFor(modelItem => message.Status)</li>
+                </ul>
+            </li>
+        }
+    </ul>
+

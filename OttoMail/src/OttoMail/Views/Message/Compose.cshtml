@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Compose";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model OttoMail.Models.Message
+
+<h2>Compose a text message</h2>
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.To)
+    @Html.TextBoxFor(model => model.To)
+  
+    @Html.LabelFor(model => model.Body)
+    @Html.TextBoxFor(model => model.Body)
+
+
+
+    <input id="compose" type="submit" value="Send" />
+}
+@Html.ActionLink("Back to Inbox", "Index")

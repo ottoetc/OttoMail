@@ -3,11 +3,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using System.Security.Claims
 
 @model IEnumerable<OttoMail.Models.Email>
+@using System.Security.Claims
 
-<h2>@User.GetUserName()'s Email</h2>
+<h2>Email</h2>
 
 @Html.ActionLink("Compose", "Compose")
 
