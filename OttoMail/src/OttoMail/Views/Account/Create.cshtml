@@ -5,19 +5,20 @@
 
 @model OttoMail.Models.User
 
-<h2>Create</h2>
-<h4>Add a new user</h4>
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(model => model.FirstName)
-    @Html.TextBoxFor(model => model.FirstName)
-        
-    @Html.LabelFor(model => model.LastName)
-    @Html.TextBoxFor(model => model.LastName)
+<div class="container-fluid">
+    <h4>Add a new user</h4>
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.FirstName)
+        @Html.TextBoxFor(model => model.FirstName)
 
-    @Html.LabelFor(model => model.UserName)
-    @Html.TextBoxFor(model => model.UserName)
+        @Html.LabelFor(model => model.LastName)
+        @Html.TextBoxFor(model => model.LastName)
 
-    <input type="submit" value="Add new user" />
-}
-<p>@Html.ActionLink("Back to user list", "Index")</p>
+        @Html.LabelFor(model => model.UserName)
+        @Html.TextBoxFor(model => model.UserName)
+
+        <input type="submit" value="Add new user" />
+    }
+    <p>@Html.ActionLink("Back to user list", "Index")</p>
+</div>

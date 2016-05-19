@@ -3,18 +3,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model OttoMail.Models.Message
+<div class="container-fluid">
+    <h2>Compose a text message</h2>
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            @Html.LabelFor(model => model.To)
+            @Html.TextBoxFor(model => model.To)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Body)
+            @Html.TextBoxFor(model => model.Body)
+        </div>
 
-<h2>Compose a text message</h2>
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(model => model.To)
-    @Html.TextBoxFor(model => model.To)
-  
-    @Html.LabelFor(model => model.Body)
-    @Html.TextBoxFor(model => model.Body)
 
-
-
-    <input id="compose" type="submit" value="Send" />
-}
-@Html.ActionLink("Back to Inbox", "Index")
+        <button id="compose" type="submit" value="Send" class="btn btn-primary">Send</button>
+    }
+    @Html.ActionLink("Back to Inbox", "Index")
+</div>

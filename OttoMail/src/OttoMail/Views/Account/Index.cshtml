@@ -4,37 +4,37 @@
 }
 
 @using System.Security.Claims
-
-@if (User.IsSignedIn())
+<div class="container-fluid">
+    @if (User.IsSignedIn())
             {
-    <p>Welcome to OttoMail, @User.GetUserName()!</p>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $.ajax({
-                type: 'GET',
-                dataType: 'html',
-                url: '@Url.Action("Index", "Email")',
-                success: function (result) {
-                    $('#email').html(result);
-                }
+        <p>Welcome to OttoMail, @User.GetUserName()!</p>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $.ajax({
+                    type: 'GET',
+                    dataType: 'html',
+                    url: '@Url.Action("Index", "Email")',
+                    success: function (result) {
+                        $('#email').html(result);
+                    }
+                })
+
+                $.ajax({
+                    type: 'GET',
+                    dataType: 'html',
+                    url: '@Url.Action("Index", "Message")',
+                    success: function (result) {
+                        $('#messages').html(result);
+
+                    }
+
+                })
+
             })
 
-            $.ajax({
-                type: 'GET',
-                dataType: 'html',
-                url: '@Url.Action("Index", "Message")',
-                success: function (result) {
-                    $('#messages').html(result);
 
-                }
+        </script>
 
-            })
-
-        })
-
-    
-    </script>
-    <div class="container-fluid">
         <div class="row">
             <div class="col-sm-2">
                 <button class="btn btn-primary">Compose</button>
@@ -45,11 +45,13 @@
             </div>
         </div>
 
-    </div>
 
-}
-else
-{
-    <p>@Html.ActionLink("Register", "Register")</p>
-                <p>@Html.ActionLink("Login", "Login")</p>
-}
+
+    }
+    else
+    {
+        <h1>Please Register or Login</h1>
+        <p>@Html.ActionLink("Register", "Register")</p>
+        <p>@Html.ActionLink("Login", "Login")</p>
+    }
+</div>

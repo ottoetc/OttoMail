@@ -6,14 +6,14 @@
 
 @model IEnumerable<OttoMail.Models.Email>
 @using System.Security.Claims
-
+<div class="container-fluid">
 <h2>Email</h2>
 
 @Html.ActionLink("Compose", "Compose")
 
 @if (Model.Any())
 {
-    <ul>
+    <ul class="list-unstyled">
         @foreach (var listEmail in Model)
         {
             <li><a href="@Url.Action("Details", new { id = listEmail.EmailId })">@Html.DisplayFor(modelEmail => listEmail.Date) | @Html.DisplayFor(modelEmail => listEmail.Subject)</a> | @Html.ActionLink("Delete", "Delete", new { id = listEmail.EmailId })</li>
@@ -24,4 +24,4 @@ else
 {
     <p>Your email is empty</p>
 }
-
+</div>

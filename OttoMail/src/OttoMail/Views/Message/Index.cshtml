@@ -6,17 +6,17 @@
 @using System.Security.Claims
 
 @model IEnumerable<OttoMail.Models.Message>
+<div class="container-fluid">
+    <h2>Text Messages</h2>
 
-<h2>Text Messages</h2>
-
-@Html.ActionLink("Compose Text Message", "Compose")
+    @Html.ActionLink("Compose Text Message", "Compose")
 
 
-    <ul>
+    <ul class="list-unstyled">
         @foreach (var message in Model)
         {
             <li>
-                <ul>
+                <ul class="list-unstyled">
                     <li>To: @Html.DisplayFor(modelItem => message.To)</li>
                     <li>From: @Html.DisplayFor(modelItem => message.From)</li>
                     <li>Body: @Html.DisplayFor(modelItem => message.Body)</li>
@@ -26,3 +26,4 @@
         }
     </ul>
 
+</div>
